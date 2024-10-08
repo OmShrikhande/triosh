@@ -33,7 +33,7 @@ export default function RootLayout() {
     'flux-thin':require('../assets/fonts/AfacadFlux-Thin.ttf'),
   })
   return (
-    <ClerkProvider publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}>
+    <ClerkProvider publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY} tokenCache={tokenCache}>
    
  
    <SignedIn>
