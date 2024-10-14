@@ -39,7 +39,7 @@ export default function LoginScreen() {
             marginTop:120,
         }}>
 
-            <Image source={require('../assets/images/DemoLogin.png')}
+            <Image source={require('../assets/images/image.png')}
             style={{
                 width:220,
                 height:450,

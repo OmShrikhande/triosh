@@ -4,6 +4,7 @@ import { Colors } from '../../constants/Colors'
 import { TouchableOpacity } from 'react-native'
 import { useRouter } from 'expo-router'
 import { useAuth } from '@clerk/clerk-expo'
+
 export default function MenuList() {
 
     const {signOut} = useAuth();
@@ -25,7 +26,7 @@ export default function MenuList() {
         {
             id:3,
             name:'My Devices',
-            icon:require('../../assets/images/add.png'),
+            icon:require('../../assets/images/devices.png'),
             path:'/device/my-devices'
         },
         
@@ -43,16 +44,21 @@ const router = useRouter();
 const onMenuClick=(item)=>{
         
         if(item.path=='logout'){
-            signOut
+            signOut()
             return;
         }
-        else if(item.path=='share'){
-            Share.share('🚀 Control Your IoT Devices with TriOsh! \n\n\n 🌐Check out this amazing app Ceated By om Shrikahnde that lets you manage and control all your IoT devices in one place! With just a tap, you can trigger and access the IPs of your connected devices remotely, no matter where you are.\n✅ Monitor device status\n✅ Trigger actions by accessing device IPs\n✅ View all device details like name, location, and category\n✅ Simple, fast, and secure!\n\n\n\nDownload now and take full control of your smart devices. 🌍💡🔧')
+        if(item.path=='share'){
+            Share.share(
+                
+                {message:
+                    '🚀 Control Your IoT Devices with TriOsh! \n\n\n 🌐Check out this amazing app Ceated By om Shrikahnde that lets you manage and control all your IoT devices in one place! With just a tap, you can trigger and access the IPs of your connected devices remotely, no matter where you are.\n✅ Monitor device status\n✅ Trigger actions by accessing device IPs\n✅ View all device details like name, location, and category\n✅ Simple, fast, and secure!\n\n\n\nDownload now and take full control of your smart devices. 🌍💡🔧'
+
+                })
             return;
         }
-        else{
+        
             router.push(item.path)
-        }
+        
 }
 
 
@@ -76,7 +82,7 @@ const onMenuClick=(item)=>{
                         flex:1,
                         height:100,
                         borderRadius:15,
-                        borderWidth:1,
+                        borderWidth:2,
                         margin:10,
                         borderColor:Colors.PRIMARY
                     }}

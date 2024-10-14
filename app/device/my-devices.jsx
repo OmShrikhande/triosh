@@ -86,7 +86,7 @@ export default function AccessModeDevices() {
     <ImageBackground 
       source={{ uri: item.imageUrl }} // Fetching image from Firestore
       style={styles.cardBackground}
-      blurRadius={5}
+      blurRadius={20}
        // Optional: style for the image to cover properly
     >
       <View style={styles.card}>
