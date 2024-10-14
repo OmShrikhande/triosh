@@ -3,11 +3,20 @@ import React, { useEffect, useState } from 'react';
 import { collection, getDocs, query, updateDoc, deleteDoc, doc } from 'firebase/firestore';
 import { db } from '../../configs/FirebaseConfigs'; // Adjust based on your file structure
 import { Ionicons } from '@expo/vector-icons'; // For delete icon (you can use any icon package)
+import { useNavigation } from 'expo-router';
 
 export default function AccessModeDevices() {
   const [accessDevices, setAccessDevices] = useState([]);
-
+  const navigation=useNavigation();
   useEffect(() => {
+    navigation.setOptions({
+      headerShow:true,
+      headerTitle: 'My Devices',
+      headerRight: () => (
+        <TouchableOpacity
+          style={styles.headerRightButton}
+          onPress={() => navigation.navigate('AddDevice')}/>)
+    })
     // Fetch devices with type 'Access Mode'
     const fetchAccessDevices = async () => {
       const q = query(collection(db, 'Devices'));
@@ -77,6 +86,7 @@ export default function AccessModeDevices() {
     <ImageBackground 
       source={{ uri: item.imageUrl }} // Fetching image from Firestore
       style={styles.cardBackground}
+      blurRadius={5}
        // Optional: style for the image to cover properly
     >
       <View style={styles.card}>
@@ -89,8 +99,9 @@ export default function AccessModeDevices() {
           </TouchableOpacity>
         </View>
         <Text style={styles.deviceCategory}>Location: {item.location}</Text>
+        <Text style={styles.deviceCategory}>Category: {item.category}</Text>
         <Text style={styles.deviceIP}>IP: {item.IP}</Text>
-
+        
         {/* Button to trigger the IP in the browser */}
         <TouchableOpacity
           style={styles.triggerButton}
