@@ -14,7 +14,8 @@ export default function PopularDeviceCard({ Devices }) {
 
      <View style={{
         fontSize:17,
-        fontWeight:'bold',
+        fontFamily:'flux-bold',
+        // fontWeight:'bold',
         marginTop:10,
         marginBottom:5,
         marginLeft:10,
