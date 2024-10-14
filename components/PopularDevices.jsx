@@ -1,7 +1,7 @@
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, Linking, TouchableOpacity } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { Colors } from '../constants/Colors';
-import { collection, getDocs, limit, query } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore'; // Added orderBy
 import { db } from '../configs/FirebaseConfigs';
 import PopularDeviceCard from './PopularDeviceCard';
 
@@ -12,15 +12,21 @@ export default function DeviceList() {
     GetDeviceList();
   }, []);
 
+  // Fetch most recent devices ordered by a 'lastUsed' timestamp or any other recent usage field
   const GetDeviceList = async () => {
-    setDeviceList([]); // Reset the list before fetching new data
-    const q = query(collection(db, 'DeviceList'), limit(10));
+    setDeviceList([]);
+    const q = query(
+      collection(db, 'Devices'),
+      orderBy('lastUsed', 'desc'), // Assuming 'lastUsed' is the field that stores recent activity
+      limit(4)
+    );
     const querySnapshot = await getDocs(q);
 
+    const devices = [];
     querySnapshot.forEach((doc) => {
-      console.log(doc.data());
-      setDeviceList((prev) => [...prev, doc.data()]);
+      devices.push({ ...doc.data(), id: doc.id });
     });
+    setDeviceList(devices);
   };
 
   return (
@@ -41,20 +47,18 @@ export default function DeviceList() {
             fontWeight: 'bold',
           }}
         >
-          Popular Devices
+          Recently Used Devices
         </Text>
 
         <Text style={{ color: Colors.PRIMARY }}>View all</Text>
       </View>
 
-      {/* Corrected FlatList data prop */}
+      {/* Horizontal scrolling list for recently used devices */}
       <FlatList
-      horizontal={true}
-        data={deviceList} // Changed from DeviceList to deviceList
-        renderItem={({ item, index }) => (
-          <PopularDeviceCard Devices={item} key={index} />
-        )}
-        // keyExtractor={(item, index) => index.toString()} // Ensure each item has a unique key
+        horizontal={true}
+        data={deviceList}
+        renderItem={({ item }) => <PopularDeviceCard device={item} />}
+        keyExtractor={(item) => item.id}
       />
     </View>
   );

@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import React from 'react'
 import Header from '../../components/Header'
 import Slider from '../../components/Slider'
@@ -7,7 +7,7 @@ import PopularDevices from '../../components/PopularDevices'
 
 export default function home() {
   return (
-    <View>
+    <ScrollView>
      {/* Header */}
     <Header/>
 
@@ -21,6 +21,6 @@ export default function home() {
      <PopularDevices/>
 
      
-    </View>
+    </ScrollView>
   )
 }

@@ -83,7 +83,8 @@ export default function AddDevice() {
 
     const saveDeviceDetails = async (imageUrl) => {
         try {
-            await setDoc(doc(db, 'Devices', Date.now().toString()), {
+            const timestamp = Date.now(); // Generate the current timestamp
+            await setDoc(doc(db, 'Devices', timestamp.toString()), {
                 name: deviceName,
                 IP: DeviceIP,
                 location: DeviceLocation,
@@ -93,6 +94,7 @@ export default function AddDevice() {
                 username: user?.fullName ?? '',
                 userEmail: user?.primaryEmailAddress?.emailAddress ?? '',  // Corrected
                 imageUrl: imageUrl ?? '',  // Ensure no null values
+                createdAt: new Date(), // Store the timestamp in the backend
             });
             ToastAndroid.show('New Device added Successfully', ToastAndroid.LONG);
         } catch (error) {
@@ -102,6 +104,7 @@ export default function AddDevice() {
             setLoading(false);
         }
     };
+    
     
     
   return (
