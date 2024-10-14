@@ -16,14 +16,14 @@ export default function MenuList() {
             id:2,
             name:'Share App',
             icon:require('../../assets/images/share.png'),
-            path:''
+            path:'/device/my-devices'
         },
         
         {
             id:3,
             name:'My Devices',
             icon:require('../../assets/images/add.png'),
-            path:''
+            path:'/device/my-devices'
         },
         
         {
