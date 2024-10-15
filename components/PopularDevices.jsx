@@ -4,9 +4,11 @@ import { Colors } from '../constants/Colors';
 import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore'; // Added orderBy
 import { db } from '../configs/FirebaseConfigs';
 import PopularDeviceCard from './PopularDeviceCard';
+import { useUser } from '@clerk/clerk-expo';
 
 export default function DeviceList() {
   const [deviceList, setDeviceList] = useState([]);
+  const {user}=useUser();
 
   useEffect(() => {
     GetDeviceList();

@@ -1,18 +1,19 @@
 import { View, Text, TextInput, FlatList, TouchableOpacity, StyleSheet, Linking } from 'react-native';
 import React, { useState, useEffect } from 'react';
-import { collection, getDocs, query } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../configs/FirebaseConfigs'; // Adjust based on your file structure
 import { Colors } from '../../constants/Colors';
+import { useUser } from '@clerk/clerk-expo';
 export default function Explore() {
   const [devices, setDevices] = useState([]); // All devices
   const [searchQuery, setSearchQuery] = useState(''); // Search input
   const [filteredDevices, setFilteredDevices] = useState([]); // Filtered based on search
   const [suggestions, setSuggestions] = useState([]); // Suggestions for similar input
-
+  const {user}=useUser();
   // Fetch devices on component mount
   useEffect(() => {
     const fetchDevices = async () => {
-      const q = query(collection(db, 'Devices'));
+      const q = query(collection(db, 'Devices'),where('userEmail',"==",user?.primaryEmailAddress?.emailAddress));
       const querySnapshot = await getDocs(q);
       const fetchedDevices = [];
 

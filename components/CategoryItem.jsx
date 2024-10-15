@@ -5,7 +5,7 @@ import { Colors } from '../constants/Colors'
 export default function CategoryItem({category,onCategoryPress}) {
   return (
 
-    <TouchableOpacity onPress={()=>onCategoryPress(category,onCategoryPress)}>
+    <TouchableOpacity onPress={()=>onCategoryPress(category)}>
         <View style={{padding:15, 
             backgroundColor:Colors.PRIMARY,
             borderRadius:99,

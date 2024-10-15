@@ -4,9 +4,10 @@ import { Colors } from '../constants/Colors'
 import { collection, getDocs, query } from 'firebase/firestore'
 import { db } from '../configs/FirebaseConfigs'
 import CategoryItem from './CategoryItem'
+import { useRouter } from 'expo-router'
 
 export default function Category() {
-
+    const router=useRouter();
     const [categoryList, setCategoryList]=useState([]);
     useEffect(()=>{
         GetCategoryList();
@@ -46,7 +47,7 @@ export default function Category() {
                 data={categoryList}
                 style={{marginLeft:15}}
                 renderItem={({item,index})=>(
-                   <CategoryItem category={item} key={index} onCategoryPress={(category)=>{console.log(category)}}/>
+                   <CategoryItem category={item} key={index} onCategoryPress={(category)=>router.push('/deviceList/'+item.name)}/>
                 )}
              />
         </View>
