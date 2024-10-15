@@ -16,15 +16,8 @@ export default function AccessModeDevices() {
     navigation.setOptions({
       headerShow: true,
       headerTitle: 'My Devices',
-      headerRight: () => (
-        <TouchableOpacity
-          style={styles.headerRightButton}
-          onPress={() => navigation.navigate('AddDevice')}
-        >
-          <Text style={styles.addDeviceText}>Add Device</Text>
-        </TouchableOpacity>
-      ),
-    });
+  
+    },[]);
 
     // Fetch devices associated with the logged-in user's email
     const fetchAccessDevices = async () => {

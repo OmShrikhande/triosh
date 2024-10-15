@@ -34,7 +34,7 @@ export default function BusinessListByCategory() {
 
         querySnapshot.forEach((docs)=>{
             console.log(docs.data())// map over the documents and render them here
-            setBusinessList(prev=>[...prev,docs.data()])
+            setBusinessList(prev=>[...prev,{id:docs?.id,...docs.data()}])
         })
 
         setLoading(false);
