@@ -1,4 +1,4 @@
-import { View, Text, ActivityIndicator } from 'react-native'
+import { View, Text, ActivityIndicator, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useLocalSearchParams } from 'expo-router'
 import { doc, getDoc } from 'firebase/firestore'
@@ -6,6 +6,7 @@ import { db } from '../../configs/FirebaseConfigs'
 import Intro from '../../components/DeviceDetail/Intro'
 import { Colors } from '../../constants/Colors'
 import ActionButton from '../../components/DeviceDetail/ActionButton'
+import AboutSection from '../../components/DeviceDetail/AboutSection'
 
 export default function DeviceId() {
 
@@ -34,7 +35,7 @@ export default function DeviceId() {
      },[])
 
   return (
-    <View>
+    <ScrollView>
     {
     
             loading? <ActivityIndicator  size={'large'}
@@ -49,13 +50,16 @@ export default function DeviceId() {
             <View>
                 {/* Intro */}
                     <Intro device={device}/>
+                
+                
                 {/* Action Buttons */}
 
-                <ActionButton/>
+                <ActionButton device={device}/>
 
                 {/* About Sections */}
+                <AboutSection device={device}/>
             </View>
     }
-  </View>
+  </ScrollView>
   )
 }
