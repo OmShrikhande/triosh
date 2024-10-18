@@ -51,7 +51,7 @@ export default function LoginScreen() {
           </View>
 
           <View style={styles.subContainer}>
-            <Text style={{fontSize:35, textAlign:'center', fontFamily:'flux-bold'}}> Your Ultimate <Text style={{fontFamily:'flux-bold',color:Colors.PRIMARY}}> TRIOSH An IOT Controller</Text> App</Text>
+            <Text style={{fontSize:35, textAlign:'center', fontFamily:'flux-bold'}}> Your Ultimate <Text style={{fontFamily:'flux-bold',color:Colors.PRIMARY}}>{Colors.Appname} An IOT Controller</Text> App</Text>
 
             <Text style={{fontSize:15,fontFamily:'flux',color:Colors.GRAY,textAlign:'center',marginVertical:15}}>
                 Let you become the Controller of your environment single handedly

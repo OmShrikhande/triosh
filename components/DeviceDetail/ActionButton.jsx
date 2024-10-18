@@ -1,6 +1,7 @@
-import { View, Text, FlatList, Image, Linking } from 'react-native'
+import { View, Text, FlatList, Image, Linking, Share } from 'react-native'
 import React from 'react'
 import { TouchableOpacity } from 'react-native';
+import { Colors } from '../../constants/Colors';
 
 
 export default function ActionButton({device}) {
@@ -21,12 +22,14 @@ export default function ActionButton({device}) {
       id:2,
       name:'Share',
       icon:require('./../../assets/images/sharecolor.png'),
-      url:'https://www.google.com/maps/search/?api=1&query='+device.location
+      url:''
     },
 ]
   const OnPressHandle=(item)=>{
-    if(item.name=='share'){
-
+    if(item.name=='Share'){
+      Share.share({
+        message:device?.name+"\n Address: "+device.location+"\n Find More Details on "+Colors.Appname+", Made By Om Shrikhande"
+      })
       return ;
     }
     Linking.openURL(item?.url)
@@ -57,8 +60,7 @@ export default function ActionButton({device}) {
             width:50,
             height:50,
             borderRadius:25,
-            borderWidth:2,
-            borderColor:index%2===0?'#ddd':'#ccc'
+            borderColor:Colors.PRIMARY, borderWidth:3
           
           }}/>
           <Text style={{

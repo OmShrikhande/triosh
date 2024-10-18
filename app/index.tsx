@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { Redirect, useNavigation } from "expo-router";
 import { LinearGradient } from 'expo-linear-gradient'; // Import LinearGradient for the background
+import { Colors } from '@/constants/Colors';
 
 export default function Index() {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,7 +38,7 @@ export default function Index() {
         source={require('../assets/images/image.png')} // Make sure to replace with your logo path
         style={styles.logo}
       />
-      <Text style={styles.appName}>Triosh</Text>
+      <Text style={styles.appName}>{Colors.Appname}</Text>
     </LinearGradient>
   );
 }

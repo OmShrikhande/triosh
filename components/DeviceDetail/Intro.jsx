@@ -4,6 +4,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from 'expo-router';
+import { Colors } from '../../constants/Colors';
 
 export default function Intro({ device }) {
     const navigation = useNavigation(); // Typed navigation
@@ -21,7 +22,9 @@ export default function Intro({ device }) {
     }
 
     return (
-        <View>
+        <View style={{
+            
+        }}>
             <View
                 style={{
                     position: 'absolute',
@@ -54,6 +57,8 @@ export default function Intro({ device }) {
                 borderTopRightRadius: 20,
                 borderTopLeftRadius: 20,
                 marginTop: -10,
+                borderWidth:1,
+            borderBottomColor:Colors.GRAY
              }}>
                 <Text style={{ fontSize: 35, fontFamily:'flux-bold',  }}>
                     {device.name || 'Unknown Device'}

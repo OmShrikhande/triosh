@@ -22,7 +22,7 @@ export default function DeviceId() {
         const docRef= doc(db, "Devices", deviceid)
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
-            setDevice(docSnap.data());
+            setDevice({id:docSnap.id,...docSnap.data()});
             setLoading(false)
         } else {
             console.log("No such document!");
