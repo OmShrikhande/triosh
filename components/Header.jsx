@@ -51,11 +51,14 @@ const {user}= useUser();
             margin:10,
             borderRadius:33
         }}>
-            <Ionicons name="search" size={24} color="black" />
-            <TextInput placeholder='Search...' 
+            {/* <Ionicons name="search" size={24} color="black" /> */}
+            <TextInput placeholder=' Lets Trigger it with Triosh' 
                 style={{
                     fontFamily:'flux',
                     fontSize:16,
+                    textAlign:'center',
+                    alignItems:'center',
+                    width:'100%',
                     
                 }}/>   
         </View>

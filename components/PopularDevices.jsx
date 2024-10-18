@@ -26,9 +26,10 @@ export default function DeviceList() {
 
     const devices = [];
     querySnapshot.forEach((doc) => {
-      devices.push({ ...doc.data(), id: doc.id });
+      console.log(doc.data())
+      setDeviceList(prev=>[...prev,{id: doc.id,...doc.data(), }]);
     });
-    setDeviceList(devices);
+    
   };
 
   return (
@@ -49,10 +50,10 @@ export default function DeviceList() {
             fontWeight: 'bold',
           }}
         >
-          Recently Used Devices
+          # Recently Used Devices
         </Text>
 
-        <Text style={{ color: Colors.PRIMARY }}>View all</Text>
+        
       </View>
 
       {/* Horizontal scrolling list for recently used devices */}

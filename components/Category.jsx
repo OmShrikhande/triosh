@@ -38,7 +38,7 @@ export default function Category() {
                 fontWeight:'bold',
             }}>Category</Text>
 
-            <Text style={{color:Colors.PRIMARY}}>View all</Text>
+            {/* <Text style={{color:Colors.PRIMARY}}>View all</Text> */}
         </View>
 
         <View>

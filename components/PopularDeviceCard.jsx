@@ -1,21 +1,34 @@
-import { View, Text, Image, TouchableOpacity, Linking, StyleSheet } from 'react-native';
-import React from 'react';
-import { Colors } from '../constants/Colors';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  Linking,
+  StyleSheet,
+} from "react-native";
+import React from "react";
+import { Colors } from "../constants/Colors";
+import { useRouter } from "expo-router";
 
 export default function PopularDeviceCard({ device }) {
   // Open IP address in Chrome
   const openInChrome = (ip) => {
     const url = `http://${ip}`; // Construct URL for opening in browser
-    Linking.openURL(url).catch((err) => console.error('Failed to open URL:', err));
+    Linking.openURL(url).catch((err) =>
+      console.error("Failed to open URL:", err)
+    );
   };
 
+  const router =useRouter();
+
+
+
   return (
-    <View style={styles.cardContainer}>
+    <TouchableOpacity style={styles.cardContainer}
+      onPress={()=> router.push("/devicedetails/"+device?.id)}
+    >
       {/* Display device image */}
-      <Image
-        source={{ uri: device?.imageUrl }}
-        style={styles.deviceImage}
-      />
+      <Image source={{ uri: device?.imageUrl }} style={styles.deviceImage} />
 
       {/* Device details */}
       <View style={styles.detailsContainer}>
@@ -27,7 +40,7 @@ export default function PopularDeviceCard({ device }) {
           <Text style={styles.deviceIP}>IP: {device.IP}</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -35,13 +48,14 @@ const styles = StyleSheet.create({
   cardContainer: {
     padding: 10,
     marginLeft: 20,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     borderRadius: 15,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 3,
+    marginBottom: 20,
   },
   deviceImage: {
     width: 200,
@@ -52,24 +66,24 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 5,
     marginLeft: 10,
-    color: '#444',
+    color: "#444",
   },
   deviceName: {
-    fontFamily: 'flux-bold',
+    fontFamily: "flux-bold",
     fontSize: 17,
-    color: '#212121',
+    color: "#212121",
     marginBottom: 5,
   },
   deviceLocation: {
-    fontFamily: 'flux-bold',
+    fontFamily: "flux-bold",
     fontSize: 15,
     color: Colors.GRAY,
   },
   deviceIP: {
-    fontFamily: 'flux-bold',
+    fontFamily: "flux-bold",
     fontSize: 16,
-    color: '#1E90FF', // Make the IP blue to indicate it's clickable
-    textDecorationLine: 'underline', // Underline to indicate clickable link
+    color: "#1E90FF", // Make the IP blue to indicate it's clickable
+    textDecorationLine: "underline", // Underline to indicate clickable link
     marginTop: 5,
   },
 });
