@@ -7,6 +7,8 @@ import Intro from '../../components/DeviceDetail/Intro'
 import { Colors } from '../../constants/Colors'
 import ActionButton from '../../components/DeviceDetail/ActionButton'
 import AboutSection from '../../components/DeviceDetail/AboutSection'
+import Reviews from '../../components/DeviceDetail/Reviews'
+
 
 export default function DeviceId() {
 
@@ -58,6 +60,9 @@ export default function DeviceId() {
 
                 {/* About Sections */}
                 <AboutSection device={device}/>
+
+                {/* Review Section */}
+                    <Reviews device={device}/>
             </View>
     }
   </ScrollView>
