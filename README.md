@@ -3,7 +3,7 @@ Here’s the enhanced README content formatted as code for a `README.md` file:
 ```md
  Welcome to the Expo App 👋
 
-This is an [Expo](https://expo.dev) project, initiated by **Om Shrikhande**, created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app). It provides a seamless foundation for building cross-platform applications using React Native.
+This is an [Expo](https://expo.dev) project, initiated by Om Shrikhande, created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app). It provides a seamless foundation for building cross-platform applications using React Native.
 
 ![Expo Logo](https://expo.dev/static/brand/expo-logo.svg)
 
@@ -14,7 +14,7 @@ To start building your app, follow these simple steps:
 1. Install Dependencies
 
 Ensure you have [Node.js](https://nodejs.org/) installed. Then, run the following command:
-
+```
 ```bash
 npm install
 ```
@@ -38,7 +38,7 @@ You’ll have the option to open the app in:
 
  🛠️ Developing Your App
 
-You can start developing right away by editing the files inside the **app** directory. This project uses a [file-based routing system](https://docs.expo.dev/router/introduction), making navigation easier to manage.
+You can start developing right away by editing the files inside the app directory. This project uses a [file-based routing system](https://docs.expo.dev/router/introduction), making navigation easier to manage.
 
  Project Directory Structure
 
@@ -58,7 +58,7 @@ When you're ready to start fresh, move the starter code and initialize a blank s
 npm run reset-project
 ```
 
-This will move the starter code into the **app-example** directory and create a new, empty **app** directory for custom development.
+This will move the starter code into the app-example directory and create a new, empty app directory for custom development.
 
 ---
 
@@ -82,7 +82,7 @@ Connect with the vibrant Expo community:
 
  👨‍💻 Created by
 
-This app was proudly created by **Om Shrikhande**. Feel free to reach out for any queries or contributions to the project!
+This app was proudly created by Om Shrikhande. Feel free to reach out for any queries or contributions to the project!
 ```
 
 You can copy and paste this into a `README.md` file in your project!
