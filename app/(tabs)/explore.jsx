@@ -1,7 +1,7 @@
 import { View, Text, TextInput, FlatList, TouchableOpacity, StyleSheet, Linking } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs, query, where } from 'firebase/firestore';
-import { db } from '../../configs/FirebaseConfigs'; // Adjust based on your file structure
+import { db } from './../../configs/FirebaseConfigs'; // Adjust based on your file structure
 import { Colors } from '../../constants/Colors';
 import { useUser } from '@clerk/clerk-expo';
 export default function Explore() {
@@ -136,14 +136,17 @@ export default function Explore() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    padding:20,
     backgroundColor: '#f4f6f8',
   },
   heading: {
     fontSize: 28,
     fontWeight: 'bold',    
-    marginBottom: 20,
-    marginTop:10,
+    paddingBottom: 20,
+    paddingTop:10,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    // marginBottom: 20,
   },
   searchInput: {
     padding: 15,
@@ -153,6 +156,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.PRIMARY,
     backgroundColor: '#fff',
     fontSize: 16,
+    fontFamily:'flux',
   },
   card: {
     backgroundColor: '#fff',
@@ -165,22 +169,27 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 2 },
     elevation: 3,
+    fontFamily:'flux',
   },
   deviceName: {
     fontSize: 20,
     fontWeight: 'bold',
     color: '#333',
     marginBottom: 5,
+    fontFamily:'flux-bold',
   },
   deviceCategory: {
     fontSize: 16,
     color: '#666',
     marginBottom: 5,
+    fontFamily:'flux',
   },
   deviceIP: {
     fontSize: 16,
     color: '#1E90FF',
     marginBottom: 10,
+    textDecorationLine: 'underline',
+    fontFamily:'flux',
   },
   triggerButton: {
     backgroundColor: Colors.PRIMARY,
@@ -192,6 +201,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
+    fontFamily:'flux-bold',
   },
   noResultsText: {
     textAlign: 'center',
@@ -213,5 +223,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
+    fontFamily:'flux-bold',
   },
 });

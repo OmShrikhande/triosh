@@ -19,7 +19,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.omshrikhande.triosh"
     },
     "web": {
       "bundler": "metro",
@@ -37,6 +41,11 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d55eabf7-24c1-4f69-aff2-3a71190b01a0"
+      }
     }
   }
 }
